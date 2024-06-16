@@ -1,0 +1,76 @@
+# Ignore system-specific files
+.DS_Store
+Thumbs.db
+desktop.ini
+
+# Ignore SSH keys and credentials
+*.pem
+*.key
+*.crt
+*.cer
+*.der
+*.p12
+
+# Ignore sensitive files
+.env
+.env.*
+
+# Ignore backups and temporary files
+*.bak
+*.tmp
+*.swp
+*.swo
+*~
+
+# Ignore logs
+*.log
+
+# Ignore build files
+node_modules/
+dist/
+build/
+.cache/
+*.o
+*.obj
+*.pyc
+*.pyo
+*.class
+
+# Ignore IDE and editor files
+.vscode/
+.idea/
+*.sublime-workspace
+*.sublime-project
+*.code-workspace
+*.iml
+
+# Ignore macOS specific files
+.AppleDouble
+.LSOverride
+._*
+
+# Ignore other unwanted files
+tags
+TAGS
+sessions.vim
+Session.vim
+
+# Ignore npm debug files
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+
+# Ignore python virtual environments
+venv/
+env/
+
+# Ignore Ruby specific files
+.rvmrc
+.rbenv-version
+.rbenv-gemsets
+.ruby-version
+.ruby-gemset
+.gem/
+
+# Ignore Go specific files
+*.out
