@@ -2,6 +2,20 @@
 
 Environment setup files for OSX setup
 
+## Nix-based dotfiles setup (Jun 17)
+
+- open built-in Terminal App (should be bash shell by default)
+- install darwin (macos) dependencies (`$ xcode-select --install`)
+- fetch dotfiles (`$ git clone https://github.com/aitchwhyz/dotfiles.git`)
+- Resources for dotfiles
+  - https://github.com/mitchellh/nixos-config/blob/main/machines/macbook-pro-m1.nix
+  - https://github.com/dustinlyons/nixos-config?tab=readme-ov-file#for-macos-june-2024
+  - https://evantravers.com/articles/2024/02/06/switching-to-nix-darwin-and-flakes/
+  - https://github.com/evantravers/dotfiles/tree/master/home
+  - https://mirosval.sk/blog/2023/nix-getting-started/
+
+
+
 # Dotfiles setup (May 2, 2024 ~)
 
 Use tools below

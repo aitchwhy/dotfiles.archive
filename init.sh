@@ -1,4 +1,95 @@
 #!/bin/bash
+
+# TODO: getting hostname (scutil --get LocalHostName) :  https://github.com/LnL7/nix-darwin/blob/master/README.md#flakes
+export GIT_USER="aitchwhyz"
+
+# Function to check if a command exists
+command_exists() {
+    command -v "$1" >/dev/null 2>&1
+}
+
+install_nix() {
+    # Installer -> https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#usage (NOTE: if any conflicts with existing Nix files + daemons the installer will help remove)
+    curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+
+    # source installed nix
+    . /nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh
+}
+
+uninstall_nix() {
+    # Installer -> https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#usage
+    /nix/nix-installer uninstall
+}
+
+install_nix_darwin() {
+    # local install
+    # nix run nix-darwin -- switch --flake ~/dotfiles
+    # remote install (dotfiles already on github)
+    nix run nix-darwin -- switch --flake "github:$GIT_USER/dotfiles"
+}
+
+############################################
+# Nix
+############################################
+
+install_nix
+
+install_nix_darwin
+
+# if ! command_exists nix; then
+#     exit 1
+# fi
+
+exit 0
+
+# ############################################
+# # Core
+# ############################################
+
+# export BREW_PREFIX="/opt/homebrew"
+
+# # Install homebrew (if not exist)
+# if ! command_not_exists brew; then
+#     curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh
+# fi
+
+# # - Run this command in your terminal to add Homebrew to your PATH:
+#     # eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# ############################################
+# # Zsh
+# ############################################
+
+# # change default shell to zsh
+# chsh -s "/bin/zsh"
+# # plugins
+# # https://github.com/unixorn/awesome-zsh-plugins?tab=readme-ov-file#plugins
+
+# # zplug
+# # https://blog.woefe.com/posts/bootstrap_zsh.html
+# # https://blog.woefe.com/posts/bootstrap_zsh.html
+
+# ############################################3
+# # pkgx.dev - install/run ANYTHING (https://docs.pkgx.sh/)
+# # packages list : https://dist.pkgx.dev/
+# ############################################3
+
+# # install/run ANYTHING (https://docs.pkgx.sh/)-  packages list : https://dist.pkgx.dev/
+# brew install pkgxdev/made/pkgx
+
+# # tmux + termuxinator
+# # https://github.com/tmuxinator/tmuxinator
+
+# # install zplug (z plugin manager)
+# if [[ ! -d ~/.zplug]]
+
+# ############################################3
+# # Zsh setup
+# ############################################3
+
+# # TODO: brew packages from brew bundle file
+# # TODO: https://github.com/jamesob/desk
+
 ####################################
 # # (May 2 2024) from dotfiles/README
 # - (blank state)
@@ -29,7 +120,6 @@
 #       - `https://devenv.sh/`
 #       - `https://flakehub.com/`
 ####################################
-
 
 # # -------------------------------------------------
 # # Install 'webi' installer (https://webinstall.dev/)
@@ -77,4 +167,3 @@
 # # Run dotfiles config with chezmoi
 # # -------------------------------------------------
 # # chezmoi init --apply --verbose https://github.com/$GITHUB_USERNAME/dotfiles.git
-
