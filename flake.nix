@@ -1,30 +1,23 @@
 {
-  description = "Hank's Nix flake";
+  description = "aitchwhyz's flake";
 
   inputs = {
-    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-unstable";
-
-    home-manager = {
-      url = "github:nix-community/home-manager";
-      inputs.nixpkgs.follows = "nixpkgs";
-    };
-
-    darwin = {
+    nixpkgs.url = "github:NixOS/nixpkgs/nixpkgs-24.05-darwin";
+    # Pin darwin to a particular release
+    nix-darwin = {
       url = "github:LnL7/nix-darwin";
       inputs.nixpkgs.follows = "nixpkgs";
     };
-
-    flake-utils.url = "github:numtide/flake-utils";
+    # Also pin home-manager to same version so that it would not issue the mismatch error
+    home-manager = {
+      url = "github:nix-community/home-manager/release-24.05";
+      inputs.nixpkgs.follows = "nixpkgs";
+    };
   };
 
-  outputs = {
-    darwin,
-    home-manager,
-    ...
-  } @ inputs: {
+  outputs = inputs@{ self, nix-darwin, nixpkgs, home-manager, ... }: {
     darwinConfigurations = {
-     hostname = darwin.lib.darwinSystem {
-        # system = "x86_64-darwin";
+      "aitch-mbp-patter" = nix-darwin.lib.darwinSystem {
         system = "aarch64-darwin";
         modules = [
           ./darwin/darwin.nix

@@ -11,7 +11,7 @@
   # Use a custom configuration.nix location.
   # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
   # environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
-  environment.darwinConfig = "$HOME/dotfiles";
+  # environment.darwinConfig = "$HOME/dotfiles";
 
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
@@ -49,7 +49,7 @@
   # # $ darwin-rebuild changelog
   # system.stateVersion = 4;
 
-  services = {
+  # services = {
     # yabai = {
     #   enable = true;
     #   config = {
@@ -71,7 +71,7 @@
     #     yabai -m rule --add app='Timery' manage=off
     #   '';
     # };
-  };
+  # };
 
   homebrew = {
     enable = true;

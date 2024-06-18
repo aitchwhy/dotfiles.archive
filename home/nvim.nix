@@ -1,6 +1,6 @@
 {lib, pkgs, ...}:
 {
-  home.file.".config/nvim/init.vim".source = ../config/nvim/.config/nvim/init.vim;
+  home.file.".config/nvim/init.vim".source = ./config/nvim/.config/nvim/init.vim;
 
   # home.activation.mkdirNvimFolders = lib.hm.dag.entryAfter ["writeBoundary"] ''
   #   mkdir -p $HOME/.config/nvim/backups $HOME/.config/nvim/swaps $HOME/.config/nvim/undo
