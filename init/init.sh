@@ -9,13 +9,11 @@ command_exists() {
 }
 
 install_nix() {
-    # Installer -> https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#usage (NOTE: if any conflicts with existing Nix files + daemons the installer will help remove)
-    # curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
-    # chmod +x nix-installer.sh
-
-    # use downloaded nix installer
-    ./nix-installer-aarch64-darwin-v0.19.1
-    echo "check installation by running (nix --version)"
+    # Installer -> https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#usage
+    # (generic) curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+    # (pre-install) curl -sL -o nix-installer https://install.determinate.systems/nix/nix-installer-aarch64-darwin
+    # ./nix-installer-aarch64-darwin-v0.19.0 install macos --no-confirm --verbose --force --diagnostic-endpoint "" --explain
+    # echo "check installation by running (nix --version)"
 }
 
 uninstall_nix() {
@@ -24,8 +22,12 @@ uninstall_nix() {
 }
 
 install_nix_darwin() {
+
+    # dotfiles generated from flake template 'nix-darwin' initially (see https://nixcademy.com/2024/01/15/nix-on-macos/)
+    # $ nix flake init -t nix-darwin
+
     # (local) nix-darwin flakes install (https://github.com/LnL7/nix-darwin?tab=readme-ov-file#flakes)
-    nix run nix-darwin -- switch --flake .
+    # nix run nix-darwin -- switch --flake .
     # () remote install (dotfiles already on github) ->  nix run nix-darwin -- switch --flake "github:$GIT_USER/dotfiles"
 }
 

@@ -2,6 +2,16 @@
 
 Environment setup files for OSX setup
 
+## Nix-based dotfiles setup (Jun 18) - (nix-direnv)
+
+- to run locally cloned GH repo, run nix-darwin with "-I darwin=." after cd-ing to dotfiles dir.
+- This will point to curr dir & expect a flake (so need to supply "--flake=." too)
+ 
+```bash
+$ cd ~/dotfiles
+$ nix run nix-darwin -- switch -I darwin=. --flake .
+```
+
 ## Nix-based dotfiles setup (Jun 17)
 
 - open built-in Terminal App (should be bash shell by default)

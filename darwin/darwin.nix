@@ -1,18 +1,8 @@
-{ pkgs, ... }:
+{ inputs, lib, config, pkgs, ... }:
 
+# TODO: inputs.self, inputs.nix-darwin, and inputs.nixpkgs can be accessed here
+# nix-darwin module config options (https://daiderd.com/nix-darwin/manual/index.html)
 {
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [
-      pkgs.home-manager
-    ];
-
-  # Use a custom configuration.nix location.
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
-  # environment.darwinConfig = "$HOME/dotfiles";
-
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix = {
@@ -22,21 +12,57 @@
     };
   };
 
-  # Create /etc/zshrc that loads the nix-darwin environment.
+  # Set Git commit hash for darwin-version.
+  # system.configurationRevision = self.rev or self.dirtyRev or null;
+
+  # Used for backwards compatibility, please read the changelog before changing.
+  # $ darwin-rebuild changelog
+  system.stateVersion = 4;
+
+  # The platform the configuration will be used on.
+  inputs.nixpkgs.hostPlatform = "aarch64-darwin";
+  # nixpkgs.hostPlatform = lib.hostPlatform
+  # TODO: try the inputs var
+  # nixpkgs.hostPlatform = inputs.nixpkgs  "aarch64-darwin";
+
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  environment.systemPackages =
+    [
+      # pkgs.home-manager
+      # pkgs.vim
+    ];
+
+  # Use a custom configuration.nix location (https://github.com/LnL7/nix-darwin/wiki/Changing-the-configuration.nix-location)
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+  # $ nix run nix-darwin -- switch --flake ~/dotfiles/ ---- (nix-darwin is same as darwin-rebuild for some reason)
+  # environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
+  environment.darwinConfig = "$HOME/dotfiles/darwin/darwin.nix";
+
+
   programs = {
-    gnupg.agent.enable = true;
     zsh.enable = true;
+    # Create /etc/zshrc that loads the nix-darwin environment.
+    # # zsh is the default shell on Mac and we want to make sure that we're
+    # # configuring the rc correctly with nix-darwin paths.
+    # programs.zsh.enable = true;
+    # programs.zsh.shellInit = ''
+    #   # Nix
+    #   if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+    #     . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+    #   fi
+    #   # End Nix
+    #   '';
+
+
+    # direnv = {
+    #   enable = true;
+    #   # enableBashIntegration = true; # see note on other shells below
+    #   nix-direnv.enable = true;
+    # };
+
+
   };
-  # # zsh is the default shell on Mac and we want to make sure that we're
-  # # configuring the rc correctly with nix-darwin paths.
-  # programs.zsh.enable = true;
-  # programs.zsh.shellInit = ''
-  #   # Nix
-  #   if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
-  #     . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
-  #   fi
-  #   # End Nix
-  #   '';
 
 
   # fonts.fontDir.enable = true;
@@ -92,30 +118,30 @@
     # };
   };
 
-  system = {
-    defaults = {
-      dock = {
-        # autohide = true;
-        # orientation = "left";
-        # show-process-indicators = false;
-        show-recents = false;
-        # static-only = true;
-      };
-      finder = {
-        AppleShowAllExtensions = true;
-        # FXDefaultSearchScope = "SCcf";
-        # FXEnableExtensionChangeWarning = false;
-        ShowPathbar = true;
-      };
-      # NSGlobalDomain = {
-      #   AppleKeyboardUIMode = 3;
-      #   "com.apple.keyboard.fnState" = true;
-      #   NSAutomaticWindowAnimationsEnabled = false;
-      # };
-    };
+  # system = {
+  #   defaults = {
+  #     dock = {
+  #       # autohide = true;
+  #       # orientation = "left";
+  #       # show-process-indicators = false;
+  #       show-recents = false;
+  #       # static-only = true;
+  #     };
+  #     finder = {
+  #       AppleShowAllExtensions = true;
+  #       # FXDefaultSearchScope = "SCcf";
+  #       # FXEnableExtensionChangeWarning = false;
+  #       ShowPathbar = true;
+  #     };
+  #     # NSGlobalDomain = {
+  #     #   AppleKeyboardUIMode = 3;
+  #     #   "com.apple.keyboard.fnState" = true;
+  #     #   NSAutomaticWindowAnimationsEnabled = false;
+  #     # };
+  #   };
     # keyboard = {
     #   enableKeyMapping = true;
     #   remapCapsLockToControl = true;
     # };
-  };
+  # };
 }
