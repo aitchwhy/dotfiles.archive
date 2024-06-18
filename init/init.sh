@@ -10,7 +10,7 @@ command_exists() {
 
 install_nix() {
     # Installer -> https://github.com/DeterminateSystems/nix-installer?tab=readme-ov-file#usage
-    # (generic) curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install
+    # (generic) curl --proto '=https' --tlsv1.2 -sSf -L https://install.determinate.systems/nix | sh -s -- install macos
     # (pre-install) curl -sL -o nix-installer https://install.determinate.systems/nix/nix-installer-aarch64-darwin
     # ./nix-installer-aarch64-darwin-v0.19.0 install macos --no-confirm --verbose --force --diagnostic-endpoint "" --explain
     # echo "check installation by running (nix --version)"
@@ -27,8 +27,8 @@ install_nix_darwin() {
     # $ nix flake init -t nix-darwin
 
     # (local) nix-darwin flakes install (https://github.com/LnL7/nix-darwin?tab=readme-ov-file#flakes)
-    # nix run nix-darwin -- switch --flake .
-    # () remote install (dotfiles already on github) ->  nix run nix-darwin -- switch --flake "github:$GIT_USER/dotfiles"
+    # $ nix run nix-darwin -- switch -I darwin-config=./darwin/darwin.nix --flake .
+    # $ darwin-rebuild switch ....(same as 1st time)
 }
 
 ############################################
