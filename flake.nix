@@ -55,6 +55,14 @@
         specialArgs = { inherit inputs; };
         modules = [ 
           ./darwin/darwin.nix
+          home-manager.darwinModules.home-manager
+          {
+            _module.args = { inherit inputs; };
+            home-manager = {
+              users.hank = import ./home/home.nix;
+            };
+            users.users.hank.home = "/Users/hank";
+          }
         ];
       };
     };

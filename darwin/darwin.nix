@@ -1,8 +1,20 @@
 { inputs, lib, config, pkgs, ... }:
 
-# TODO: inputs.self, inputs.nix-darwin, and inputs.nixpkgs can be accessed here
-# nix-darwin module config options (https://daiderd.com/nix-darwin/manual/index.html)
 {
+  # TODO: inputs.self, inputs.nix-darwin, and inputs.nixpkgs can be accessed here
+  # nix-darwin module config options (https://daiderd.com/nix-darwin/manual/index.html)
+  # List packages installed in system profile. To search by name, run:
+  # $ nix-env -qaP | grep wget
+  environment.systemPackages =
+    [
+      pkgs.home-manager
+    ];
+
+  # Use a custom configuration.nix location (https://github.com/LnL7/nix-darwin/wiki/Changing-the-configuration.nix-location)
+  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
+  # $ nix run nix-darwin -- switch --flake ~/dotfiles/ ---- (nix-darwin is same as darwin-rebuild for some reason)
+  environment.darwinConfig = "$HOME/dotfiles/darwin/darwin.nix";
+
   # Auto upgrade nix package and the daemon service.
   services.nix-daemon.enable = true;
   nix = {
@@ -12,32 +24,18 @@
     };
   };
 
+  # The platform the configuration will be used on.
+  nixpkgs.hostPlatform = "aarch64-darwin";
+
   # Set Git commit hash for darwin-version.
   # system.configurationRevision = self.rev or self.dirtyRev or null;
 
   # Used for backwards compatibility, please read the changelog before changing.
   # $ darwin-rebuild changelog
-  system.stateVersion = 4;
+  # system.stateVersion = 4;
 
-  # The platform the configuration will be used on.
-  inputs.nixpkgs.hostPlatform = "aarch64-darwin";
   # nixpkgs.hostPlatform = lib.hostPlatform
-  # TODO: try the inputs var
   # nixpkgs.hostPlatform = inputs.nixpkgs  "aarch64-darwin";
-
-  # List packages installed in system profile. To search by name, run:
-  # $ nix-env -qaP | grep wget
-  environment.systemPackages =
-    [
-      # pkgs.home-manager
-      # pkgs.vim
-    ];
-
-  # Use a custom configuration.nix location (https://github.com/LnL7/nix-darwin/wiki/Changing-the-configuration.nix-location)
-  # $ darwin-rebuild switch -I darwin-config=$HOME/.config/nixpkgs/darwin/configuration.nix
-  # $ nix run nix-darwin -- switch --flake ~/dotfiles/ ---- (nix-darwin is same as darwin-rebuild for some reason)
-  # environment.darwinConfig = "$HOME/src/github.com/evantravers/dotfiles";
-  environment.darwinConfig = "$HOME/dotfiles/darwin/darwin.nix";
 
 
   programs = {
@@ -54,16 +52,12 @@
     #   # End Nix
     #   '';
 
-
     # direnv = {
     #   enable = true;
     #   # enableBashIntegration = true; # see note on other shells below
     #   nix-direnv.enable = true;
     # };
-
-
   };
-
 
   # fonts.fontDir.enable = true;
   # fonts.fonts = [
