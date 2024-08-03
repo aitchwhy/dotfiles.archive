@@ -6,7 +6,7 @@ Environment setup files for OSX setup
 
 - to run locally cloned GH repo, run nix-darwin with "-I darwin=." after cd-ing to dotfiles dir.
 - This will point to curr dir & expect a flake (so need to supply "--flake=." too)
- 
+
 ```bash
 $ cd ~/dotfiles
 $ nix run nix-darwin -- switch -I darwin=. --flake .
@@ -23,8 +23,6 @@ $ nix run nix-darwin -- switch -I darwin=. --flake .
   - https://evantravers.com/articles/2024/02/06/switching-to-nix-darwin-and-flakes/
   - https://github.com/evantravers/dotfiles/tree/master/home
   - https://mirosval.sk/blog/2023/nix-getting-started/
-
-
 
 # Dotfiles setup (May 2, 2024 ~)
 
@@ -50,7 +48,7 @@ Use tools below
     - secrets (SSH, AWS, GH, etc) setup on local filesystem via from Bitwarden CLI
 - asdf (again but this time install ALL tools from chezmoi pulled dotfile `.asdfrc` + `$HOME/.tool-versions`)
   - core tools like (zsh + iterm2 + nerdfont + dotenv + watchexec + bat + curlie + delta + eza + zoxide + vim + direnv + jq + atuin + rg + etc)
-  - ... direnv/asdf-direnv + zsh + pyenv + node + prettier + asdf-zoxide + fx + fzf + github-cli + asdf-uv + justfile + tmux +  + etc
+  - ... direnv/asdf-direnv + zsh + pyenv + node + prettier + asdf-zoxide + fx + fzf + github-cli + asdf-uv + justfile + tmux + + etc
 - (TODO) custom Hank shell scripts? Symlinks? Aliases? VSCode setup? Global ignore files (gitignore, etc)
 - (TODO) Nix + Homebrew for rest of setup
   - Nix
@@ -62,7 +60,7 @@ Use tools below
       - `https://flakehub.com/`
 - (finally setup full state)
 
----------------------
+---
 
 ## Archive (as of May 2, 2024)
 
@@ -83,7 +81,7 @@ Install Brew
 /bin/bash -c "$(curl -fsSL https://raw.githubusercontent.com/Homebrew/install/HEAD/install.sh)"
 ```
 
-Need to install Xcode CLI tools.  Install them from the App Store
+Need to install Xcode CLI tools. Install them from the App Store
 
 After installation, run the following command in the shell
 
