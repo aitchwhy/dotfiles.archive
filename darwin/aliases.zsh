@@ -5,20 +5,11 @@ alias brewinstall='brew bundle install --global'
 alias brewcleanup='brew bundle cleanup --global'
 alias brewdump='brew bundle dump --global'
 
-# zsh + ohmyzsh plugin aliases
-alias alias='als'
-
-# TODO: Zsh + iterm 2 setup (snazzy)
-# - https://github.com/sindresorhus/iterm2-snazzy
-
-# Aliases
-# alias zshconfig="mate ~/.zshrc"
-# alias ohmyzsh="mate ~/.oh-my-zsh"
-
-##############
+#############################################
+# zsh
+#############
 # oh-my-zsh NOTES
-##############
-
+#
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
 # users are encouraged to define aliases within a top-level file in
@@ -30,3 +21,16 @@ alias alias='als'
 # Example aliases
 # alias zshconfig="mate ~/.zshrc"
 # alias ohmyzsh="mate ~/.oh-my-zsh"
+#############################################
+
+alias zshrc='vim ~/.zshrc'
+
+# TODO: Zsh + iterm 2 setup (snazzy) - https://github.com/sindresorhus/iterm2-snazzy
+
+
+#############################################
+# vim + neovim
+#############################################
+alias vi=nvim
+alias vim=nvim
+

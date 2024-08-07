@@ -71,14 +71,14 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aliases alias-finder nvm tmuxinator zsh-syntax-highlighting)
+plugins=(git aliases alias-finder nvm tmuxinator)
 
 source $ZSH/oh-my-zsh.sh
 
 # HANK_CUSTOM - https://gist.github.com/ganapativs/e571d9287cb74121d41bfe75a0c864d7
 # oh-my-zsh overrides the prompt, so Pure must be activated after `source $ZSH/oh-my-zsh.sh`
-autoload -U promptinit; promptinit
-prompt pure
+#autoload -U promptinit; promptinit
+#prompt pure
 
 # export MANPATH="/usr/local/man:$MANPATH"
 
@@ -91,10 +91,6 @@ prompt pure
 # else
 #   export EDITOR='mvim'
 # fi
-export EDITOR='mvim'
-
-# Compilation flags
-# export ARCHFLAGS="-arch x86_64"
 
 # Set personal aliases, overriding those provided by Oh My Zsh libs,
 # plugins, and themes. Aliases can be placed here, though Oh My Zsh
@@ -113,8 +109,8 @@ export NVM_DIR="$HOME/.nvm"
 [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
 
 eval "$(atuin init zsh)"
-
 eval "$(zoxide init zsh)"
+eval "$(starship init zsh)"
 
 ############
 # (Aug 2, 2024) Oh-my-zsh setup config files
