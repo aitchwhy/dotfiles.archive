@@ -77,7 +77,7 @@ ZSH_THEME=""
 # Custom plugins may be added to $ZSH_CUSTOM/plugins/
 # Example format: plugins=(rails git textmate ruby lighthouse)
 # Add wisely, as too many plugins slow down shell startup.
-plugins=(git aliases alias-finder nvm tmuxinator bun zsh-syntax-highlighting zsh-completions rye)
+plugins=(git aliases alias-finder nvm tmuxinator bun zsh-completions zsh-syntax-highlighting)
 
 source $ZSH/oh-my-zsh.sh
 
@@ -222,8 +222,11 @@ cursor_mode
 #
 # # bun completions
 # [ -s "/Users/hank/.bun/_bun" ] && source "/Users/hank/.bun/_bun"
-#
+
 # # bun
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 source "$HOME/.rye/env"
+eval "$(zellij setup --generate-auto-start zsh)"
+eval "$(zoxide init zsh)"
+

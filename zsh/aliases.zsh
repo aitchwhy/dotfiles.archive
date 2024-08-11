@@ -49,7 +49,7 @@ alias ssh='sshs'
 alias s3='stu'
 alias http='xh'
 alias csv='xsv'
-alias rm='rip'
+# alias rm='rip'
 alias tldr='tealdeer'
 
 alias jsonfilter='jnv'
