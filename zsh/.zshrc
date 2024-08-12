@@ -230,3 +230,5 @@ source "$HOME/.rye/env"
 eval "$(zellij setup --generate-auto-start zsh)"
 eval "$(zoxide init zsh)"
 
+
+source /Users/hank/.config/broot/launcher/bash/br

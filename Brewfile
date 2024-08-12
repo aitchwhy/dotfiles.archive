@@ -137,8 +137,6 @@ brew "tailspin"
 brew "telnet"
 # Text interface for Git repositories
 brew "tig"
-# Simplified and community-driven man pages
-brew "tldr", link: false
 # Instant terminal sharing
 brew "tmate"
 # Lightweight, POSIX-compliant regular expression (regex) library
