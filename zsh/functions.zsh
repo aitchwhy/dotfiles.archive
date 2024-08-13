@@ -21,7 +21,10 @@ slink_init() {
     slink $DOTFILES_FUNCTIONS $OMZ_CUSTOM/functions.zsh
 
     slink $DOTFILES/nvm/default-packages $NVM_DIR/default-packages
-    slink $DOTFILES/config/git/.gitignore $HOME/.gitignore
+    slink $DOTFILES/.config/git/.gitignore $HOME/.gitignore
+
+
+    slink $DOTFILES/.config/zellij/main-layout.kdl $HOME/.config/config.kdl
 }
 
 

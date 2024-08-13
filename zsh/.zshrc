@@ -227,7 +227,8 @@ cursor_mode
 # export BUN_INSTALL="$HOME/.bun"
 # export PATH="$BUN_INSTALL/bin:$PATH"
 source "$HOME/.rye/env"
-eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup --generate-auto-start zsh)"
+# eval "$(zellij setup zsh)"
 eval "$(zoxide init zsh)"
 
 

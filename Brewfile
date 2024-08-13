@@ -1,4 +1,5 @@
 tap "derailed/k9s"
+tap "dotenvx/brew"
 tap "homebrew/bundle"
 tap "homebrew/services"
 tap "kdash-rs/kdash"
@@ -101,8 +102,6 @@ brew "neovim"
 brew "nmap"
 # Manage multiple Node.js versions
 brew "nvm"
-# Create, run, and share large language models (LLMs)
-brew "ollama", restart_service: true
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # Tool for managing OCI containers and pods
@@ -137,6 +136,8 @@ brew "tailspin"
 brew "telnet"
 # Text interface for Git repositories
 brew "tig"
+# Simplified and community-driven man pages
+brew "tldr"
 # Instant terminal sharing
 brew "tmate"
 # Lightweight, POSIX-compliant regular expression (regex) library
@@ -159,10 +160,14 @@ brew "yazi"
 brew "zellij"
 # Shell extension to navigate your filesystem faster
 brew "zoxide"
+# Real-time type-ahead completion for Zsh
+brew "zsh-autocomplete"
 # Fish shell like syntax highlighting for zsh
 brew "zsh-syntax-highlighting"
 # Kubernetes CLI To Manage Your Clusters In Style!
 brew "derailed/k9s/k9s"
+# Better dotenv–from the creator of `dotenv`
+brew "dotenvx/brew/dotenvx"
 # A fast and simple dashboard for Kubernetes written in Rust
 brew "kdash-rs/kdash/kdash"
 # TUI application for AWS S3 written in Rust using ratatui
@@ -204,10 +209,14 @@ cask "font-symbols-only-nerd-font"
 cask "hammerspoon"
 # System monitoring app
 cask "istat-menus"
+# Discover, download, and run local LLMs
+cask "lm-studio"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Knowledge base that works on top of a local folder of plain text Markdown files
 cask "obsidian"
+# Get up and running with large language models locally
+cask "ollama"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Desktop virtualization software
