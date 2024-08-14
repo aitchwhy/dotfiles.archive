@@ -5,6 +5,7 @@ tap "homebrew/services"
 tap "kdash-rs/kdash"
 tap "lusingander/tap"
 tap "minio/stable"
+tap "olets/tap"
 tap "oven-sh/bun"
 tap "supabase/tap"
 tap "ynqa/tap"
@@ -24,6 +25,8 @@ brew "bottom"
 brew "bpytop"
 # New way to see and navigate directory trees
 brew "broot"
+# Versatile and fast Unicode/ASCII/ANSI graphics renderer
+brew "chafa"
 # Create and view interactive cheat sheets for *nix commands
 brew "cheat"
 # Music player with an ncurses based interface
@@ -88,6 +91,8 @@ brew "just"
 brew "khal"
 # Simple terminal UI for git commands
 brew "lazygit"
+# Input filter for the pager less
+brew "lesspipe"
 # Mac App Store command-line interface
 brew "mas"
 # Powerful paging program
@@ -112,8 +117,6 @@ brew "prettyping"
 brew "procs"
 # Cloud native development platform
 brew "pulumi"
-# Pretty, minimal and fast ZSH prompt
-brew "pure"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Wrapper around ripgrep that adds multiple rich file types
@@ -162,8 +165,8 @@ brew "zellij"
 brew "zoxide"
 # Real-time type-ahead completion for Zsh
 brew "zsh-autocomplete"
-# Fish shell like syntax highlighting for zsh
-brew "zsh-syntax-highlighting"
+# Additional completion definitions for zsh
+brew "zsh-completions"
 # Kubernetes CLI To Manage Your Clusters In Style!
 brew "derailed/k9s/k9s"
 # Better dotenv–from the creator of `dotenv`
@@ -200,8 +203,6 @@ cask "cheatsheet"
 cask "copilot"
 # Calendar software
 cask "fantastical"
-# Web browser
-cask "firefox"
 cask "font-fira-code-nerd-font"
 cask "font-hack-nerd-font"
 cask "font-symbols-only-nerd-font"

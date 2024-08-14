@@ -1,9 +1,11 @@
-alias dots='cd $DOTFILES'
-alias brewedit='vim $DOTFILES/Brewfile'
+
+alias dots='cd $DOTS'
+alias brewedit='vim $BREWFILE_GLOBAL'
 alias brewls='ls -al $BREWFILE_GLOBAL'
-alias brewinstall='brew bundle install --global'
-alias brewcleanup='brew bundle cleanup --global'
-alias brewdump='brew bundle dump --global'
+alias brewsave='brew bundle install --global --all'
+alias brewcleanup='brew bundle cleanup --global --all --force'
+alias brewdiff='brew bundle cleanup --global --all'
+alias brewsave='brew bundle dump --global --all --force --describe'
 
 #############################################
 # zsh
@@ -23,7 +25,7 @@ alias brewdump='brew bundle dump --global'
 # alias ohmyzsh="mate ~/.oh-my-zsh"
 #############################################
 
-alias zshrc='vim ~/.zshrc'
+# alias zshrc='vim ~/.zshrc'
 
 # TODO: Zsh + iterm 2 setup (snazzy) - https://github.com/sindresorhus/iterm2-snazzy
 
@@ -37,14 +39,14 @@ alias vim=nvim
 # upgrade to modern
 alias ps='procs'
 alias ping='gping'
-alias diff=''
+# alias diff=''
 alias ls='eza -al'
 alias cheat='navi'
 alias tldr='navi'
 alias net='trippy'
 alias netviz='netop'
 alias jwt='jet-ui'
-alias sed='sd'
+# alias sed='sd'
 alias du='dust'
 alias ssh='sshs'
 alias s3='stu'
@@ -55,17 +57,6 @@ alias zlj='zellij'
 
 alias jsonfilter='jnv'
 alias jsonviewer='jnv'
-alias dots='cd $DOTFILES'
-alias brewedit='vim $DOTFILES/Brewfile'
-alias brewls='ls -al $BREWFILE_GLOBAL'
-
-
-alias brewsave='brew bundle install --global --all'
-alias brewclean='brew bundle cleanup --global --all --force'
-alias brewdiff='brew bundle cleanup --global --all'
-alias brewsave='brew bundle dump --global --all --force --describe --debug'
-
-alias zshrc='vim ~/.zshrc'
 
 # TODO: Zsh + iterm 2 setup (snazzy) - https://github.com/sindresorhus/iterm2-snazzy
 
