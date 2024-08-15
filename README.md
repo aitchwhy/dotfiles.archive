@@ -1,8 +1,34 @@
 # dotfiles
 
+
 Environment setup files for OSX setup
 
 - https://terminaltrove.com/language/rust/
+
+
+# Aug 15 (mackup)
+
+```
+convention
+[somewhat in desc order]
+
+- ./darwin/ : the mac os (darwin) specific config files which include 
+  - OS configs like Finder app prefs + keyboard modifier key + etc
+  - homebrew file
+  - system services
+  - assets (fonts)
+- ./home-manager/ : USER-level configs ("home files") that use/call/init ".config" folder files since they need to be setup
+  - ./nix/ : nixos config files- 
+  - programming lang files (zsh, python, justfile, )
+- ./config/ : the template or exact copy of the config files for whichever program/app
+
+
+```
+
+- https://github.com/mathiasbynens/dotfiles/blob/main/.macos
+- https://github.com/lra/mackup/blob/master/doc/README.md
+- https://github.com/ptb/mac-setup
+- https://github.com/paulmillr/dotfiles
 
 # Aug 9 2024 (zsh autocomplete + use ZDOTDIR setup to avoid using frameworks like OMZ)
 
