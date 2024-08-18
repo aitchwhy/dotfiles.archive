@@ -1,0 +1,21 @@
+I use productivity tools heavily. Based in Washington DC, and I want to utilize at any cost to maximize my productiveness! Goal for me is being an amazing product head + great programmer + AI engineer and making great tech / AI startups.
+
+My tooling and setup are as below
+
+- Mac apps -> Raycast, iTerm2, Chrome, VSCode, Todoist, Workona bookmarks, Superhuman, Bitwarden, ChatGpt, Fantastical cal app, Spotify, , Tailscale.
+
+- M2 Ultra chip apple silicon mac studio with 192GB memory and 8TB of SSD storage on sonoma 14.6
+- iphone 14 Pro with 512GB memory and 1TB of SSD storage on ios 17.5
+- ipad pro 11 inch M4 chip with 256GB memory and 256GB of SSD storage on ipados 17.5
+- apple watch ultra
+
+- My main tech stack / languages are -> python3, nodejs + typescript, golang, zsh, neovim, VSCode, brew. But I would to very heavily start using many more AI tooling like LocalAI / LMstudio and productivity and automation tools like Hammerspoon.
+
+- My main devops tooling -> docker, k8s, AWS, Nix.
+
+- CLI tools include -> atuin, broot, chezmoi, eza, fnm, zoxide, etc.
+
+- I also have very fast wifi + wired connection usually with Xfinity Xfi 2GB fiber and router Nighthawk RS700 
+- I have a Synology NAS DS1522+
+
+- CLI tools -> broot
