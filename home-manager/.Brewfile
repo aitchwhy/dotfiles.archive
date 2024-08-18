@@ -251,6 +251,8 @@ cask "ngrok"
 cask "obsidian"
 # Get up and running with large language models locally
 cask "ollama"
+# Verify system files structure, run miscellaneous maintenance and more
+cask "onyx"
 # Replacement for Docker Desktop
 cask "orbstack"
 # Desktop virtualization software
