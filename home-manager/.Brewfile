@@ -221,8 +221,8 @@ cask "chatgpt"
 cask "cheatsheet"
 # Track and budget money
 cask "copilot"
-# Client for the Dropbox cloud storage service
-cask "dropbox"
+# # Client for the Dropbox cloud storage service
+# cask "dropbox"
 # Calendar software
 cask "fantastical"
 cask "font-droid-sans-mono-for-powerline"
