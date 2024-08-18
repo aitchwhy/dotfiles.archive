@@ -221,8 +221,8 @@ cask "chatgpt"
 cask "cheatsheet"
 # Track and budget money
 cask "copilot"
-# # Client for the Dropbox cloud storage service
-# cask "dropbox"
+# Voice and text chat software
+cask "discord"
 # Calendar software
 cask "fantastical"
 cask "font-droid-sans-mono-for-powerline"
@@ -281,6 +281,8 @@ cask "sunsama"
 cask "superhuman"
 # Network toolbox
 cask "surge"
+# Mesh VPN based on WireGuard
+cask "tailscale"
 # To-do list
 cask "todoist"
 # Open-source code editor
