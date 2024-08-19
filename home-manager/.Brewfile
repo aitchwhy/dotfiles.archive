@@ -7,12 +7,17 @@ tap "lusingander/tap"
 tap "minio/stable"
 tap "olets/tap"
 tap "oven-sh/bun"
+tap "rfidresearchgroup/proxmark3"
 tap "supabase/tap"
 tap "ynqa/tap"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
+# Library for command-line editing
+brew "readline"
 # Record and share terminal sessions
 brew "asciinema"
+# Source code beautifier for C, C++, C#, and Java
+brew "astyle"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
 # Terminal bandwidth utilization tool
@@ -35,6 +40,8 @@ brew "cheat"
 brew "chezmoi"
 # Music player with an ncurses based interface
 brew "cmus"
+# GNU File, Shell, and Text utilities
+brew "coreutils"
 # Top-like interface for container metrics
 brew "ctop"
 # Open source multi-tool for exploring and publishing data
@@ -69,8 +76,12 @@ brew "fx"
 brew "fzf"
 # Fast, simple fuzzy text selector with an advanced scoring algorithm
 brew "fzy"
+# Graphics library to dynamically manipulate images
+brew "gd"
 # GitHub command-line tool
 brew "gh"
+# Distributed revision control system
+brew "git"
 # Syntax-highlighting pager for git and diff output
 brew "git-delta"
 # Alternative to top/htop
@@ -117,6 +128,8 @@ brew "nmap"
 brew "nvm"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
+# Manage compile and link flags for libraries
+brew "pkg-config"
 # Tool for managing OCI containers and pods
 brew "podman"
 # Wrapper to colorize and simplify ping's output
@@ -125,6 +138,10 @@ brew "prettyping"
 brew "procs"
 # Cloud native development platform
 brew "pulumi"
+# Cross-platform application and UI framework
+brew "qt@5"
+# Convert character set (charsets)
+brew "recode"
 # Search tool like grep and The Silver Searcher
 brew "ripgrep"
 # Wrapper around ripgrep that adds multiple rich file types
@@ -141,6 +158,8 @@ brew "speedtest-cli"
 brew "sshs"
 # Cross-shell prompt for astronauts
 brew "starship"
+# Easiest, most secure way to use WireGuard and 2FA
+brew "tailscale"
 # Log file highlighter
 brew "tailspin"
 # User interface to the TELNET protocol
@@ -191,6 +210,10 @@ brew "lusingander/tap/stu"
 brew "minio/stable/minio"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
+# GCC for embedded ARM processors
+brew "rfidresearchgroup/proxmark3/arm-none-eabi-gcc"
+# RRG/Iceman Proxmark3 client, CDC flasher and firmware bundle
+brew "rfidresearchgroup/proxmark3/proxmark3", args: ["with-generic"]
 # Supabase CLI
 brew "supabase/tap/supabase"
 # Interactive grep (for streaming)
@@ -281,14 +304,14 @@ cask "sunsama"
 cask "superhuman"
 # Network toolbox
 cask "surge"
-# Mesh VPN based on WireGuard
-cask "tailscale"
 # To-do list
 cask "todoist"
 # Open-source code editor
 cask "visual-studio-code"
 # Network protocol analyzer
 cask "wireshark"
+# Open-source version of the X.Org X Window System
+cask "xquartz"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Bear", id: 1091189122
