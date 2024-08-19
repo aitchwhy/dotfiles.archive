@@ -1,384 +1,106 @@
 #!/usr/bin/env zsh
 
-
-
-############
-# TODO - https://github.com/holman/dotfiles/blob/master/zsh/zshrc.symlink
-# TODO - https://github.com/thornycrackers/nix-config/blob/master/src/bash/includes.sh
-############
-# # all of our zsh files
-# typeset -U config_files
-# config_files=($ZSH/**/*.zsh)
-#
-# # load the path files
-# for file in ${(M)config_files:#*/path.zsh}
-# do
-#   source $file
-# done
-#
-# # load everything but the path and completion files
-# for file in ${${config_files:#*/path.zsh}:#*/completion.zsh}
-# do
-#   source $file
-# done
-#
-# # initialize autocomplete here, otherwise functions won't be loaded
-# autoload -U compinit
-# compinit
-#
-# # load every completion after autocomplete loads
-# for file in ${(M)config_files:#*/completion.zsh}
-# do
-#   source $file
-# done
-#
-# unset config_files
-############
-
-#-------------------------------------------------------------------------------
-# Shortcut paths (e.g dotfiles)
-#-------------------------------------------------------------------------------
+#------------------------------------------------------------------------------
+# Shortcut paths and essential environment variables
+#------------------------------------------------------------------------------
 export DOTS=$HOME/src/dotfiles
 export DOTS_ZSH=$DOTS/zsh
-# export ZPLUG_HOME="~/.zplug"
-
-#-----------
-# homebrew
-#-----------
-export BREW_PREFIX="/opt/homebrew"
-export BREWFILE_GLOBAL=${HOMEBREW_BUNDLE_FILE_GLOBAL:-$HOME/.Brewfile}
-
-
-
-#-----------
-# TODO: starship (zsh prompt)
-#-----------
-# mkdir -p ~/.config && touch ~/.config/starship.toml
-
-
-#-----------
-# Preferred editor for local and remote sessions
-#-----------
+# export BREW_PREFIX="/opt/homebrew"
+# export BREWFILE_GLOBAL=${HOMEBREW_BUNDLE_FILE_GLOBAL:-$HOME/.Brewfile}
 export EDITOR='nvim'
 
-#-----------
-# Zplug (zsh plugin manager) - init
-#-----------
-
-# Check if zplug is installed + install if not (check ~/.zplug dir)
+#------------------------------------------------------------------------------
+# Initialize zplug (Zsh plugin manager) and install plugins if necessary
+#------------------------------------------------------------------------------
 if [[ ! -d ~/.zplug ]]; then
+  echo "zplug not found. Installing..."
   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-  # git clone https://github.com/zplug/zplug ~/.zplug
-  source ~/.zplug/init.zsh
-  # zplug update
+  echo "zplug installed. Please wait..."
+  sleep 3  # Wait for 3 seconds to ensure everything is set up properly
+  # source ~/.zplug/init.zsh  # Initialize zplug immediately after installation
 fi
 
-# INIT ZPLUG - Essential (needs to be here even if above "if" conditional not run)
+# Ensure zplug is sourced after installation
 source ~/.zplug/init.zsh
 
-#################################################
-# zsh zplug plugins list
-#
-# TODO: z.lua
-# TODO: https://github.com/unixorn/zsh-quickstart-kit?tab=readme-ov-file#included-plugins
-# TODO: https://github.com/bonnefoa/kubectl-fzf
-#################################################
-
-# NOTE: oh-my-zsh plugins like below (https://github.com/zplug/zplug/issues/436) + (https://github.com/zplug/zplug/issues/481) + (https://github.com/zplug/zplug/issues/239)
-# zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/*.zsh" 
-# zplug "robbyrussell/oh-my-zsh", as:plugin, use:"lib/command-not-found" 
-
-zplug "plugins/brew", from:oh-my-zsh, as:plugin, if:"(( $+commands[brew] ))"
-zplug "zsh-users/zsh-completions"
-zplug "plugins/command-not-found", from:oh-my-zsh, as:plugin
-zplug "plugins/aliases", from:oh-my-zsh, as:plugin
-
-zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
-zplug "plugins/git", from:oh-my-zsh, as:plugin, if:"(( $+commands[git] ))"
-zplug "plugins/git-extra-commands", from:oh-my-zsh, as:plugin if:"(( $+commands[git] ))"
-# zplug 'wfxr/forgit', if:"(( $+commands[git] ))"
-
-# zplug "junegunn/fzf", as:plugin, if:"(( $+commands[fzf] ))"
-# zplug "urbainvaes/fzf-marks", if:"(( $+commands[fzf] ))"
-# zplug "plugins/fzf-zsh-plugin", from:oh-my-zsh
-# zplug "unixorn/fzf-zsh-plugin"
-
-# zplug "plugins/nx-completion", from:oh-my-zsh
-
-zplug "MichaelAquilina/zsh-you-should-use"
-# suggest from (completions + history)
+#------------------------------------------------------------------------------
+# zsh plugins list (existing and additional plugins)
+#------------------------------------------------------------------------------
 zplug "zsh-users/zsh-autosuggestions"
-# zplug "marlonrichert/zsh-autocomplete", as:plugin # # https://www.reddit.com/r/zsh/comments/v08lsx/zshautocomplete_vs_zshautosuggestions_vs_fig/
-
-# zplug "jeffreytse/zsh-vi-mode"
-# zplug "olets/zsh-abbr"
-
-# # Can manage local plugins (local ~/.zsh)
-# aliases.zsh + functions.zsh + etc
-# zplug "$DOTS_ZSH", from:local, use:".zsh"
-
-# prompt (pure)
-zplug "mafredri/zsh-async"
+zplug "zdharma-continuum/fast-syntax-highlighting"
+zplug "zsh-users/zsh-syntax-highlighting", as:plugin
+zplug "zsh-users/zsh-completions", as:plugin
+zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
+zplug "junegunn/fzf", as:plugin, if:"(( $+commands[fzf] ))"
+zplug "Aloxaf/fzf-tab", as:plugin, if:"(( $+commands[fzf] ))"
 zplug "sindresorhus/pure", as:theme, use:pure.zsh
 
-#################################################
-# Install packages that have not been installed yet (zplug declarations from above)
-#################################################
+# brew aliases
+zplug "plugins/brew", from:oh-my-zsh, as:plugin, if:"(( $+commands[brew] ))"
+# alias helper
+zplug "plugins/aliases", from:oh-my-zsh, as:plugin
+zplug "plugins/command-not-found", from:oh-my-zsh, as:plugin
+# git aliases
+zplug "plugins/git", from:oh-my-zsh, as:plugin, if:"(( $+commands[git] ))"
+# git extra util commands (https://github.com/unixorn/git-extra-commands?tab=readme-ov-file#oh-my-zsh)
+zplug "unixorn/git-extra-commands", as:command, if:"(( $+commands[git] ))"
 
-# install any uninstalled plugins
-zplug check --verbose || zplug install
+# reminder of existing aliases
+zplug "MichaelAquilina/zsh-you-should-use"
 
-#-----------
-# Custom code (e.g. aliases)
-#-----------
-# alias ls='ls --color=auto -al'
+# Additional plugins for functionality
+zplug "mafredri/zsh-async"  # Required for Pure theme
+
+# Install any missing plugins
+if ! zplug check --verbose; then
+    zplug install
+fi
+
+# Load all plugins
+zplug load --verbose
+
+#------------------------------------------------------------------------------
+# Enable Vim mode in Zsh and custom keybindings
+#------------------------------------------------------------------------------
+bindkey -v # Enable Vim keybindings
+
+# Rebind Ctrl+R to use Atuin's interactive search
+bindkey '^R' 'atuin search --interactive'
+
+#------------------------------------------------------------------------------
+# Configure fzf with Vim-like keybindings
+#------------------------------------------------------------------------------
+export FZF_DEFAULT_OPTS="--layout=reverse --multi --height=40% --bind='ctrl-j:down,ctrl-k:up,ctrl-m:accept' --bind='esc:cancel'"
+
+# Advanced fzf usage: Ctrl-T for file search, Alt-C for directory search
+# Ctrl-R is bound to Atuin's search above, so here are custom keybindings:
+bindkey '^T' fzf-file-widget
+bindkey '^[C' fzf-cd-widget
+
+#------------------------------------------------------------------------------
+# Initialize additional tools and configurations
+#------------------------------------------------------------------------------
+eval "$(atuin init zsh)"       # Initialize Atuin for advanced command history
+eval "$(zoxide init zsh)"      # Initialize zoxide for smarter directory navigation
+eval "$(starship init zsh)"    # Initialize Starship prompt (optional if using Pure theme)
+
+#------------------------------------------------------------------------------
+# Custom aliases
+#------------------------------------------------------------------------------
 alias ls='eza --color=auto -al'
-alias lsa='eza --color=auto -al'
-# alias ll='ls -lah --color=auto'
 alias ll='eza -lah --color=auto'
-
-alias ze="$EDITOR $HOME/.zshrc" # edit .zshrc
-alias zs="source $HOME/.zshrc"  # reload zsh configuration
+alias ze="$EDITOR $HOME/.zshrc"  # Edit .zshrc
+alias zs="source $HOME/.zshrc"   # Reload zsh configuration
 
 alias zp="zplug"
 alias zph="zplug --help"
 alias zpl="zplug --log"
 
-source $DOTS_ZSH/aliases.symlink.zsh
+#------------------------------------------------------------------------------
+# Additional configurations
+#------------------------------------------------------------------------------
+# source $DOTS_ZSH/aliases.symlink.zsh  # Load additional aliases
 
-# TODO (was working): zsh completions (https://thevaluable.dev/zsh-completion-guide-examples/)
-# autoload -U compinit; compinit
-# fpath="$(brew --prefix)/share/zsh/site-functions:${fpath}"
+# Source Broot launcher for easier navigation (if installed)
+[[ -s /Users/h/.config/broot/launcher/bash/br ]] && source /Users/h/.config/broot/launcher/bash/br
 
-# if type brew &>/dev/null
-# then
-#   FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
-#
-#   autoload -Uz compinit
-#   compinit
-# fi
-
-
-#################################################
-# Then, source packages and add commands to $PATH
-#################################################
-zplug load --verbose
-
-# fzf (homebrew pre-installed before this script)
-# source <(fzf --zsh)
-
-
-# export NVM_DIR="$HOME/.nvm"
-# [ -s "/opt/homebrew/opt/nvm/nvm.sh" ] && \. "/opt/homebrew/opt/nvm/nvm.sh"                                       # This loads nvm
-# [ -s "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" ] && \. "/opt/homebrew/opt/nvm/etc/bash_completion.d/nvm" # This loads nvm bash_completion
-
-
-eval "$(atuin init zsh)"
-eval "$(zoxide init zsh)"
-eval "$(starship init zsh)"
-
-eval "$(fnm env --shell zsh)"
-
-
-# source /opt/homebrew/share/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh
-
-
-
-source /Users/h/.config/broot/launcher/bash/br
-
-###############################
-#  TODO
-##################################
-
-
-# fpath=($DOTFILES/zsh/plugins $fpath)
-
-# # +------------+
-# # | NAVIGATION |
-# # +------------+
-
-# setopt AUTO_CD              # Go to folder path without using cd.
-
-# setopt AUTO_PUSHD           # Push the old directory onto the stack on cd.
-# setopt PUSHD_IGNORE_DUPS    # Do not store duplicates in the stack.
-# setopt PUSHD_SILENT         # Do not print the directory stack after pushd or popd.
-
-# setopt CORRECT              # Spelling correction
-# setopt CDABLE_VARS          # Change directory to a path stored in a variable.
-# setopt EXTENDED_GLOB        # Use extended globbing syntax.
-
-# source $DOTFILES/zsh/plugins/bd.zsh
-
-# # +---------+
-# # | HISTORY |
-# # +---------+
-
-# setopt EXTENDED_HISTORY          # Write the history file in the ':start:elapsed;command' format.
-# setopt SHARE_HISTORY             # Share history between all sessions.
-# setopt HIST_EXPIRE_DUPS_FIRST    # Expire a duplicate event first when trimming history.
-# setopt HIST_IGNORE_DUPS          # Do not record an event that was just recorded again.
-# setopt HIST_IGNORE_ALL_DUPS      # Delete an old recorded event if a new event is a duplicate.
-# setopt HIST_FIND_NO_DUPS         # Do not display a previously found event.
-# setopt HIST_IGNORE_SPACE         # Do not record an event starting with a space.
-# setopt HIST_SAVE_NO_DUPS         # Do not write a duplicate event to the history file.
-# setopt HIST_VERIFY               # Do not execute immediately upon history expansion.
-
-# # +--------+
-# # | COLORS |
-# # +--------+
-
-# # Override colors
-# eval "$(dircolors -b $ZDOTDIR/dircolors)"
-
-# # +---------+
-# # | ALIASES |
-# # +---------+
-
-# source $DOTFILES/aliases/aliases
-
-# # +---------+
-# # | SCRIPTS |
-# # +---------+
-
-# source $DOTFILES/zsh/scripts.zsh
-# if [ -e "$DOTFILES_CLOUD/scripts.zsh" ]; then
-#     source $DOTFILES_CLOUD/scripts.zsh
-# fi
-
-# source "$DOTFILES/zsh/plugins/fg_bg.sh"
-# zle -N fg-bg
-# bindkey '^Z' fg-bg
-
-# function _new_command {
-#     zle push-input
-#     BUFFER=""
-# }
-
-# zle -N _new_command
-# bindkey '^Xo' _new_command
-
-# # +--------------------+
-# # | TIME NOTIFICATIONS |
-# # +--------------------+
-
-# # Send notification when command line done
-# source $DOTFILES/zsh/plugins/notifyosd.zsh
-
-# # +--------+
-# # | PROMPT |
-# # +--------+
-
-# fpath=($DOTFILES/zsh/prompt $fpath)
-# source $DOTFILES/zsh/prompt/prompt_purification_setup
-
-# # +-----------+
-# # | PROFILING |
-# # +-----------+
-
-# zmodload zsh/zprof
-
-# # +-----------+
-# # | VI KEYMAP |
-# # +-----------+
-
-# # Vi mode
-# bindkey -v
-# export KEYTIMEOUT=1
-
-# # Change cursor
-# source "$DOTFILES/zsh/plugins/cursor_mode"
-
-# # Add Vi text-objects for brackets and quotes
-# autoload -Uz select-bracketed select-quoted
-# zle -N select-quoted
-# zle -N select-bracketed
-# for km in viopp visual; do
-#   bindkey -M $km -- '-' vi-up-line-or-history
-#   for c in {a,i}${(s..)^:-\'\"\`\|,./:;=+@}; do
-#     bindkey -M $km $c select-quoted
-#   done
-#   for c in {a,i}${(s..)^:-'()[]{}<>bB'}; do
-#     bindkey -M $km $c select-bracketed
-#   done
-# done
-
-# # Emulation of vim-surround
-# autoload -Uz surround
-# zle -N delete-surround surround
-# zle -N add-surround surround
-# zle -N change-surround surround
-# bindkey -M vicmd cs change-surround
-# bindkey -M vicmd ds delete-surround
-# bindkey -M vicmd ys add-surround
-# bindkey -M visual S add-surround
-
-# # Increment a number
-# autoload -Uz incarg
-# zle -N incarg
-# bindkey -M vicmd '^a' incarg
-
-# # +------------+
-# # | COMPLETION |
-# # +------------+
-
-# source $DOTFILES/zsh/completion.zsh
-# autoload -Uz $DOTFILES/zsh/plugins/kubectl-completion/zsh-kubectl-completion
-
-# # +-----+
-# # | Git |
-# # +-----+
-
-# # Add command gitit to open Github repo in default browser from a local repo
-# source $DOTFILES/zsh/plugins/gitit.zsh
-
-# # +-----+
-# # | FZF |
-# # +-----+
-
-# if [ $(command -v "fzf") ]; then
-#     source $DOTFILES/zsh/fzf.zsh
-# fi
-
-# # +---------+
-# # | Startup |
-# # +---------+
-
-# if [[ "$(tty)" = "/dev/tty1" ]];
-# then
-#     pgrep i3 || exec ssh-agent startx "$XDG_CONFIG_HOME/X11/xinitrc"
-# else
-#     ftmuxp
-# fi
-
-# # +---------+
-# # | BINDING |
-# # +---------+
-
-# # ctrl+l used for tmux (switch pane)
-# bindkey -r '^l'
-# bindkey -r '^g'
-# bindkey '^g' .clear-screen
-
-# bindkey -r '^p'
-# bindkey -s '^p' 'fpdf\n'
-
-# # bindkey -s '^b' 'go run .\n'
-
-# # edit current command line with vim (vim-mode, then CTRL-v)
-# autoload -Uz edit-command-line
-# zle -N edit-command-line
-# bindkey -M vicmd '^v' edit-command-line
-
-# source "$DOTFILES/zsh/bindings.zsh"
-
-# # +------+
-# # | Node |
-# # +------+
-
-# source /usr/share/nvm/init-nvm.sh
-
-# # +---------------------+
-# # | SYNTAX HIGHLIGHTING |
-# # +---------------------+
-
-# source $DOTFILES/zsh/plugins/zsh-syntax-highlighting/zsh-syntax-highlighting.zsh

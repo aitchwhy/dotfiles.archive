@@ -1,1 +1,13 @@
-# TODO
+# Initialize Homebrew's environment - Ensure Homebrew’s shell environment is initialized
+# https://mac.install.guide/terminal/path
+eval "$(/opt/homebrew/bin/brew shellenv)"
+
+# Configure Zsh to find Homebrew completions
+# FPATH="$(brew --prefix)/share/zsh/site-functions:${FPATH}"
+
+# # Initialize fzf (via Homebrew) with completions and key bindings
+# if [[ -x "$(command -v fzf)" ]]; then
+#   source "$(brew --prefix)/opt/fzf/shell/completion.zsh"  # Auto-completion
+#   source "$(brew --prefix)/opt/fzf/shell/key-bindings.zsh"  # Key bindings
+# fi
+#
