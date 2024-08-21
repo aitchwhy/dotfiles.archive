@@ -244,8 +244,6 @@ cask "backblaze"
 cask "backuploupe"
 # Menu bar icon organiser
 cask "bartender"
-# Desktop password and login vault
-cask "bitwarden"
 # Test localhost and staging websites
 cask "browserstacklocal"
 # Hard disk backup and cloning utility

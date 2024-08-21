@@ -109,6 +109,8 @@ alias top="glances"
 alias htop="glances"
 
 # NOTE: inpsired by (ohmyzsh "plugin/brew")
+
+alias be="nvim ~/.Brewfile"
 alias bl="brew list"
 alias bo="brew outdated"
 alias bs="brew search"
