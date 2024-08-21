@@ -30,20 +30,18 @@ zplug "zsh-users/zsh-autosuggestions"
 zplug "zdharma-continuum/fast-syntax-highlighting"
 zplug "zsh-users/zsh-syntax-highlighting", as:plugin
 zplug "zsh-users/zsh-completions", as:plugin
-zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
+# zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
 zplug "junegunn/fzf", as:plugin, if:"(( $+commands[fzf] ))"
 zplug "Aloxaf/fzf-tab", as:plugin, if:"(( $+commands[fzf] ))"
 zplug "sindresorhus/pure", as:theme, use:pure.zsh
 
-# brew aliases
-zplug "plugins/brew", from:oh-my-zsh, as:plugin, if:"(( $+commands[brew] ))"
 # alias helper
 zplug "plugins/aliases", from:oh-my-zsh, as:plugin
 zplug "plugins/command-not-found", from:oh-my-zsh, as:plugin
 # git aliases
 zplug "plugins/git", from:oh-my-zsh, as:plugin, if:"(( $+commands[git] ))"
 # git extra util commands (https://github.com/unixorn/git-extra-commands?tab=readme-ov-file#oh-my-zsh)
-zplug "unixorn/git-extra-commands", as:command, if:"(( $+commands[git] ))"
+zplug "unixorn/git-extra-commands", as:plugin, if:"(( $+commands[git] ))"
 
 # reminder of existing aliases
 zplug "MichaelAquilina/zsh-you-should-use"
@@ -83,10 +81,18 @@ bindkey '^[C' fzf-cd-widget
 eval "$(atuin init zsh)"       # Initialize Atuin for advanced command history
 eval "$(zoxide init zsh)"      # Initialize zoxide for smarter directory navigation
 eval "$(starship init zsh)"    # Initialize Starship prompt (optional if using Pure theme)
+eval "$(fnm env --use-on-cd --shell zsh)"
+eval "$(thefuck --alias fk)"
+
+# Source Broot launcher for easier navigation (if installed)
+[[ -s /Users/h/.config/broot/launcher/bash/br ]] && source /Users/h/.config/broot/launcher/bash/br
 
 #------------------------------------------------------------------------------
 # Custom aliases
 #------------------------------------------------------------------------------
+
+# TODO: source $DOTS_ZSH/aliases.symlink.zsh  # Load additional aliases
+
 alias ls='eza --color=auto -al'
 alias ll='eza -lah --color=auto'
 alias ze="$EDITOR $HOME/.zshrc"  # Edit .zshrc
@@ -96,11 +102,52 @@ alias zp="zplug"
 alias zph="zplug --help"
 alias zpl="zplug --log"
 
-#------------------------------------------------------------------------------
-# Additional configurations
-#------------------------------------------------------------------------------
-# source $DOTS_ZSH/aliases.symlink.zsh  # Load additional aliases
+alias help="tldr"
 
-# Source Broot launcher for easier navigation (if installed)
-[[ -s /Users/h/.config/broot/launcher/bash/br ]] && source /Users/h/.config/broot/launcher/bash/br
+# process viewer
+alias top="glances"
+alias htop="glances"
+
+# NOTE: inpsired by (ohmyzsh "plugin/brew")
+alias bl="brew list"
+alias bo="brew outdated"
+alias bs="brew search"
+alias bsd="brew search --desc"
+alias bsl="brew services list"
+alias bsoff="brew services stop"
+alias bson="brew services start"
+alias bsr="brew services run"
+alias bu="brew update"
+alias ba="brew autoremove"
+alias bi="brew info"
+alias bci="brew info --cask"
+alias bin="brew install"
+alias bcin="brew install --cask"
+alias bcl="brew list --cask"
+alias bcn="brew cleanup"
+alias bco="brew outdated --cask"
+alias bcrin="brew reinstall --cask"
+alias bcubc="brew upgrade --cask && brew cleanup"
+alias bcubo="brew update && brew outdated --cask"
+alias bcup="brew upgrade --cask"
+alias bfu="brew upgrade --formula"
+alias brewp="brew pin"
+alias brewsp="brew list --pinned"
+alias bubo="brew update && brew outdated"
+alias bugbc="brew upgrade --greedy && brew cleanup"
+alias bup="brew upgrade"
+alias buz="brew uninstall --zap"
+
+
+# TODO: add CLI AI LLM tool for asking questions (web search + AI assistant both modes/cases)
+alias ghc="gh copilot suggest"
+
+function yy() {
+	local tmp="$(mktemp -t "yazi-cwd.XXXXXX")"
+	yazi "$@" --cwd-file="$tmp"
+	if cwd="$(cat -- "$tmp")" && [ -n "$cwd" ] && [ "$cwd" != "$PWD" ]; then
+		builtin cd -- "$cwd"
+	fi
+	rm -f -- "$tmp"
+}
 

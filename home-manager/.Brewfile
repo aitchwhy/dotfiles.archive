@@ -158,8 +158,6 @@ brew "speedtest-cli"
 brew "sshs"
 # Cross-shell prompt for astronauts
 brew "starship"
-# Easiest, most secure way to use WireGuard and 2FA
-brew "tailscale"
 # Log file highlighter
 brew "tailspin"
 # User interface to the TELNET protocol
@@ -321,7 +319,6 @@ mas "KakaoTalk", id: 869223134
 mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
 mas "Omnivore", id: 1564031042
-mas "Tailscale", id: 1475387142
 mas "TestFlight", id: 899247664
 vscode "42crunch.vscode-openapi"
 vscode "4ops.terraform"
