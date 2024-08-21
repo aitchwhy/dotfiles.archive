@@ -126,8 +126,6 @@ brew "mas"
 brew "most"
 # Interactive cheatsheet tool for the command-line
 brew "navi"
-# Fast, highly customisable system info script
-brew "neofetch"
 # Ambitious Vim-fork focused on extensibility and agility
 brew "neovim"
 # Port scanning utility for large networks

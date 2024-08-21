@@ -87,6 +87,11 @@ eval "$(thefuck --alias fk)"
 # Source Broot launcher for easier navigation (if installed)
 [[ -s /Users/h/.config/broot/launcher/bash/br ]] && source /Users/h/.config/broot/launcher/bash/br
 
+# pyenv init
+export PYENV_ROOT="$HOME/.pyenv"
+[[ -d $PYENV_ROOT/bin ]] && export PATH="$PYENV_ROOT/bin:$PATH"
+eval "$(pyenv init -)"
+
 #------------------------------------------------------------------------------
 # Custom aliases
 #------------------------------------------------------------------------------
@@ -140,6 +145,12 @@ alias bugbc="brew upgrade --greedy && brew cleanup"
 alias bup="brew upgrade"
 alias buz="brew uninstall --zap"
 
+# brew bundle global
+alias bbin="brew bundle install --all --global --verbose"
+alias bbsave="brew bundle dump --all --verbose --describe --global -f"
+alias bbcleanup="brew bundle cleanup --all --verbose --global -f"
+alias bbcheck="brew bundle check --all --verbose --global"
+alias bbdiff="brew bundle cleanup --all --verbose --global"
 
 # TODO: add CLI AI LLM tool for asking questions (web search + AI assistant both modes/cases)
 alias ghc="gh copilot suggest"
