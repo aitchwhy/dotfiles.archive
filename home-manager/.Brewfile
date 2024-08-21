@@ -14,8 +14,12 @@ tap "ynqa/tap"
 brew "aichat"
 # Library for command-line editing
 brew "readline"
+# AI pair programming in your terminal
+brew "aider"
 # Record and share terminal sessions
 brew "asciinema"
+# Code searching, linting, rewriting
+brew "ast-grep"
 # Source code beautifier for C, C++, C#, and Java
 brew "astyle"
 # Improved shell history for zsh, bash, fish and nushell
@@ -86,6 +90,8 @@ brew "git"
 brew "git-delta"
 # Alternative to top/htop
 brew "glances"
+# Open source programming language to build simple/reliable/efficient software
+brew "go"
 # Ping, but with a graph
 brew "gping"
 # Command-line tool for generating regular expressions
@@ -110,6 +116,8 @@ brew "khal"
 brew "lazygit"
 # Input filter for the pager less
 brew "lesspipe"
+# Package manager for the Lua programming language
+brew "luarocks"
 # Keep your Mac's application settings in sync
 brew "mackup"
 # Mac App Store command-line interface
@@ -126,6 +134,8 @@ brew "neovim"
 brew "nmap"
 # Manage multiple Node.js versions
 brew "nvm"
+# 7-Zip (high compression file archiver) implementation
+brew "p7zip"
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
 # Manage compile and link flags for libraries
@@ -138,6 +148,8 @@ brew "prettyping"
 brew "procs"
 # Cloud native development platform
 brew "pulumi"
+# Python version management
+brew "pyenv"
 # Cross-platform application and UI framework
 brew "qt@5"
 # Convert character set (charsets)
@@ -160,14 +172,18 @@ brew "sshs"
 brew "starship"
 # Log file highlighter
 brew "tailspin"
-# User interface to the TELNET protocol
-brew "telnet"
+# Programmatically correct mistyped console commands
+brew "thefuck"
 # Text interface for Git repositories
 brew "tig"
 # Simplified and community-driven man pages
 brew "tldr"
 # Instant terminal sharing
 brew "tmate"
+# Terminal multiplexer
+brew "tmux"
+# Tmux session manager. Built on libtmux
+brew "tmuxp"
 # Lightweight, POSIX-compliant regular expression (regex) library
 brew "tre"
 # Display directories as trees (with optional color/HTML output)
@@ -242,8 +258,16 @@ cask "chatgpt"
 cask "cheatsheet"
 # Track and budget money
 cask "copilot"
+# API documentation browser and code snippet manager
+cask "dash"
+# Utilities designed to make common development tasks easier
+cask "devtoys"
+# All-in-one toolbox for developers
+cask "devutils"
 # Voice and text chat software
 cask "discord"
+# Client for the Dropbox cloud storage service
+cask "dropbox"
 # Calendar software
 cask "fantastical"
 cask "font-droid-sans-mono-for-powerline"
@@ -256,8 +280,12 @@ cask "font-space-mono"
 cask "font-symbols-only-nerd-font"
 # Web browser
 cask "google-chrome"
+# Client for the Google Drive storage service
+cask "google-drive"
 # Desktop automation application
 cask "hammerspoon"
+# Open source API development ecosystem
+cask "hoppscotch"
 # System monitoring app
 cask "istat-menus"
 # Terminal emulator as alternative to Apple's Terminal app
@@ -282,6 +310,8 @@ cask "parallels"
 cask "pdf-expert"
 # Browse, manage, inspect containers and images
 cask "podman-desktop"
+# Collaboration platform for API development
+cask "postman"
 # HTTP debugging proxy
 cask "proxyman"
 # Companion app for Flipper Zero devices
@@ -302,6 +332,8 @@ cask "sunsama"
 cask "superhuman"
 # Network toolbox
 cask "surge"
+# Mesh VPN based on WireGuard
+cask "tailscale"
 # To-do list
 cask "todoist"
 # Open-source code editor
@@ -310,6 +342,8 @@ cask "visual-studio-code"
 cask "wireshark"
 # Open-source version of the X.Org X Window System
 cask "xquartz"
+# Multiplayer code editor
+cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Bear", id: 1091189122
@@ -320,6 +354,7 @@ mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
 mas "Omnivore", id: 1564031042
 mas "TestFlight", id: 899247664
+mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
 vscode "4ops.terraform"
 vscode "aaron-bond.better-comments"
@@ -349,6 +384,7 @@ vscode "bradlc.vscode-tailwindcss"
 vscode "buenon.scratchpads"
 vscode "burkeholland.simple-react-snippets"
 vscode "bysabi.prettier-vscode-standard"
+vscode "catppuccin.catppuccin-vsc"
 vscode "chad.nord-operator-theme"
 vscode "charliermarsh.ruff"
 vscode "christian-kohler.npm-intellisense"
@@ -522,7 +558,6 @@ vscode "skellock.just"
 vscode "skyran.js-jsx-snippets"
 vscode "slevesque.vscode-multiclip"
 vscode "sourcery.sourcery"
-vscode "sswg.swift-lang"
 vscode "statelyai.stately-vscode"
 vscode "steoates.autoimport"
 vscode "stringham.move-ts"
