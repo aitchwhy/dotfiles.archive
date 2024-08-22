@@ -318,8 +318,6 @@ cask "proxyman"
 cask "qflipper"
 # Control your tools with a few keystrokes
 cask "raycast"
-# Collection of apps available by subscription
-cask "setapp"
 # Instant messaging application focusing on security
 cask "signal"
 # Team communication and collaboration software
@@ -338,12 +336,6 @@ cask "tailscale"
 cask "todoist"
 # Open-source code editor
 cask "visual-studio-code"
-# Network protocol analyzer
-cask "wireshark"
-# Open-source version of the X.Org X Window System
-cask "xquartz"
-# Multiplayer code editor
-cask "zed"
 # Video communication and virtual meeting platform
 cask "zoom"
 mas "Bear", id: 1091189122
