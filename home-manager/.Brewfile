@@ -252,6 +252,8 @@ cask "cardhop"
 cask "chatgpt"
 # Tool to list all active shortcuts of the current application
 cask "cheatsheet"
+# Two-panel file manager
+cask "commander-one"
 # Track and budget money
 cask "copilot"
 # API documentation browser and code snippet manager
@@ -290,6 +292,8 @@ cask "iterm2"
 cask "keymapp"
 # Discover, download, and run local LLMs
 cask "lm-studio"
+# Adaptive brightness for external displays
+cask "lunar"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Knowledge base that works on top of a local folder of plain text Markdown files
