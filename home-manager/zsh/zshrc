@@ -107,13 +107,22 @@ alias zp="zplug"
 alias zph="zplug --help"
 alias zpl="zplug --log"
 
+#-----------------
+# redirect to more modern(?) preferred tool
+# 
+# WARN: this alias might backfire unexpectedly when running scripts that expect original binaries
+#-----------------
 alias help="tldr"
+
+alias http="xh"
+alias curl="curlie"
 
 # process viewer
 alias top="glances"
 alias htop="glances"
+#-----------------
 
-# NOTE: inpsired by (ohmyzsh "plugin/brew")
+# NOTE: inspired by ohmyzsh ("plugin/brew")
 
 alias be="nvim ~/.Brewfile"
 alias bl="brew list"
