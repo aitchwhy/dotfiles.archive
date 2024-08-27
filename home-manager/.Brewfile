@@ -24,12 +24,20 @@ brew "ast-grep"
 brew "astyle"
 # Improved shell history for zsh, bash, fish and nushell
 brew "atuin"
+# Official Amazon AWS command-line interface
+brew "awscli"
+# Fully functional local AWS cloud stack
+brew "localstack"
+# Thin wrapper around the `aws` command-line interface for use with LocalStack
+brew "awscli-local"
 # Terminal bandwidth utilization tool
 brew "bandwhich"
 # Clone of cat(1) with syntax highlighting and Git integration
 brew "bat"
 # Toolchain of the web
 brew "biome"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # Linux/OSX/FreeBSD resource monitor
@@ -64,6 +72,8 @@ brew "duf"
 brew "dust"
 # Run arbitrary commands when files change
 brew "entr"
+# AST-based pattern checker for JavaScript
+brew "eslint"
 # Perl lib for reading and writing EXIF metadata
 brew "exiftool"
 # Modern, maintained replacement for ls
@@ -110,12 +120,12 @@ brew "jq"
 brew "just"
 # CLI calendar application
 brew "khal"
+# Kubernetes command-line interface
+brew "kubernetes-cli"
 # Simple terminal UI for git commands
 brew "lazygit"
 # Input filter for the pager less
 brew "lesspipe"
-# Fully functional local AWS cloud stack
-brew "localstack"
 # Package manager for the Lua programming language
 brew "luarocks"
 # Keep your Mac's application settings in sync
@@ -140,6 +150,8 @@ brew "pgcli"
 brew "pkg-config"
 # Tool for managing OCI containers and pods
 brew "podman"
+# Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
+brew "prettier"
 # Wrapper to colorize and simplify ping's output
 brew "prettyping"
 # Modern replacement for ps written by Rust
@@ -150,6 +162,8 @@ brew "pulumi"
 brew "pyenv"
 # Cross-platform application and UI framework
 brew "qt@5"
+# Generate types and converters from JSON, Schema, and GraphQL
+brew "quicktype"
 # Convert character set (charsets)
 brew "recode"
 # Search tool like grep and The Silver Searcher
@@ -244,6 +258,8 @@ cask "backblaze"
 cask "backuploupe"
 # Menu bar icon organiser
 cask "bartender"
+# Menu item for starting and stopping homebrew services
+cask "brewservicesmenubar"
 # Test localhost and staging websites
 cask "browserstacklocal"
 # Hard disk backup and cloning utility
@@ -270,6 +286,8 @@ cask "devutils"
 cask "discord"
 # Client for the Dropbox cloud storage service
 cask "dropbox"
+# Web browser focusing on privacy
+cask "duckduckgo"
 # Calendar software
 cask "fantastical"
 cask "font-droid-sans-mono-for-powerline"
@@ -282,8 +300,10 @@ cask "font-space-mono"
 cask "font-symbols-only-nerd-font"
 # Web browser
 cask "google-chrome"
-# Client for the Google Drive storage service
-cask "google-drive"
+# Git client focusing on productivity
+cask "gitkraken"
+# Web browser
+cask "google-chrome"
 # Desktop automation application
 cask "hammerspoon"
 # Open source API development ecosystem
@@ -298,6 +318,8 @@ cask "keymapp"
 cask "lm-studio"
 # Adaptive brightness for external displays
 cask "lunar"
+# Neovim Client
+cask "neovide"
 # Reverse proxy, secure introspectable tunnels to localhost
 cask "ngrok"
 # Knowledge base that works on top of a local folder of plain text Markdown files
@@ -351,7 +373,6 @@ mas "Kindle", id: 302584613
 mas "LanScan", id: 472226235
 mas "Omnivore", id: 1564031042
 mas "TestFlight", id: 899247664
-mas "Xcode", id: 497799835
 vscode "42crunch.vscode-openapi"
 vscode "4ops.terraform"
 vscode "aaron-bond.better-comments"
