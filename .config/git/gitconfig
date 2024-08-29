@@ -5,7 +5,7 @@
     changed = yellow
     untracked = red
 [core]
-    excludesfile = /Users/hank/.gitignore
+    excludesfile = /Users/hank/.gitignore_global
     editor = nvim
 [credential]
     helper = osxkeychain
@@ -43,3 +43,4 @@
 	helper = !/opt/homebrew/bin/gh auth git-credential
 [init]
 	defaultBranch = main
+

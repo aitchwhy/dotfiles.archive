@@ -7,9 +7,10 @@ tap "lusingander/tap"
 tap "minio/stable"
 tap "olets/tap"
 tap "oven-sh/bun"
-tap "rfidresearchgroup/proxmark3"
 tap "supabase/tap"
 tap "ynqa/tap"
+# neovim
+brew "neovim"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
 # Library for command-line editing
@@ -36,8 +37,6 @@ brew "bandwhich"
 brew "bat"
 # Toolchain of the web
 brew "biome"
-# Secure and free password manager for all of your devices
-brew "bitwarden-cli"
 # Yet another cross-platform graphical process/system monitor
 brew "bottom"
 # Linux/OSX/FreeBSD resource monitor
@@ -240,8 +239,6 @@ brew "lusingander/tap/stu"
 brew "minio/stable/minio"
 # Incredibly fast JavaScript runtime, bundler, transpiler and package manager - all in one.
 brew "oven-sh/bun/bun"
-# RRG/Iceman Proxmark3 client, CDC flasher and firmware bundle
-brew "rfidresearchgroup/proxmark3/proxmark3", args: ["with-generic"]
 # Supabase CLI
 brew "supabase/tap/supabase"
 # Interactive grep (for streaming)
@@ -252,6 +249,8 @@ cask "1password"
 cask "anythingllm"
 # Chromium based browser
 cask "arc"
+# duck duck go privacy
+cask "duckduckgo"
 # Data backup and storage service
 cask "backblaze"
 # Alternative GUI for Time Machine
@@ -284,8 +283,6 @@ cask "devtoys"
 cask "devutils"
 # Voice and text chat software
 cask "discord"
-# Client for the Dropbox cloud storage service
-cask "dropbox"
 # Web browser focusing on privacy
 cask "duckduckgo"
 # Calendar software
@@ -312,6 +309,8 @@ cask "hoppscotch"
 cask "istat-menus"
 # Terminal emulator as alternative to Apple's Terminal app
 cask "iterm2"
+# Terminal emulator Warp
+cask "warp"
 # ZSA keyboard firmware flasher
 cask "keymapp"
 # Discover, download, and run local LLMs
