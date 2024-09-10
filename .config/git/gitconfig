@@ -1,46 +1,55 @@
-[color]
-    ui = true
-[color "status"]
-    added = green
-    changed = yellow
-    untracked = red
-[core]
-    excludesfile = /Users/hank/.gitignore_global
-    editor = nvim
-[credential]
-    helper = osxkeychain
-[rerere]
-    enabled = true
-[browser "gitscm"]
-    cmd = /bin/sh -c 'open http://git-scm.com/docs/$(basename $1 .html)' --
-[help]
-    browser = gitscm
-[pull]
-    ff = true
-[push]
-    default = simple
-[commit]
-    verbose = true
-[diff]
-    algorithm = histogram
-[merge]
-    conflictstyle = zdiff3
-[url "git@github.com:"]
-    insteadOf = "https://github.com"
 [user]
-    email = hank.lee.qed@gmail.com
-    name = hank
+	name = aitchwhy
+	email = hank.lee.qed@gmail.com
+
 [github]
-    email = hank.lee.qed@gmail.com
-    user = aitchwhy
+	user = aitchwhy
+	email = hank.lee.qed@gmail.com
+
+[core]
+	excludesfile = /Users/hank/.gitignore
+	editor = nvim
+
+[color]
+	ui = true
+
+[color "status"]
+	added = green
+	changed = yellow
+	untracked = red
+
+[credential]
+	helper = osxkeychain
+
+[rerere]
+	enabled = true
+
+[pull]
+	ff = true
+
+[push]
+	default = simple
+
+[commit]
+	verbose = true
+
+[merge]
+	conflictstyle = zdiff3
+
+[url "git@github.com:"]
+	insteadOf = https://github.com
+
 [hub]
-    protocol = ssh
+	protocol = ssh
+
 [credential "https://github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
 [credential "https://gist.github.com"]
 	helper = 
 	helper = !/opt/homebrew/bin/gh auth git-credential
+
 [init]
-	defaultBranch = main
+  defaultBranch = main
 
