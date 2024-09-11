@@ -281,6 +281,8 @@ cask "tailscale"
 cask "todoist"
 # Open-source code editor
 cask "visual-studio-code"
+# collab + AI code editor
+cask "zed"
 # Rust-based terminal
 cask "warp"
 # Video communication and virtual meeting platform
