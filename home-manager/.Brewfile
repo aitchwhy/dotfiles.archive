@@ -7,15 +7,12 @@ tap "lusingander/tap"
 tap "olets/tap"
 tap "oven-sh/bun"
 tap "ynqa/tap"
-##################################
-# neovim
-brew "neovim"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
-# Library for command-line editing
-brew "readline"
 # AI pair programming in your terminal
 brew "aider"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
 # Code searching, linting, rewriting
 brew "ast-grep"
 # Improved shell history for zsh, bash, fish and nushell
@@ -32,12 +29,12 @@ brew "bandwhich"
 brew "bat"
 # Toolchain of the web
 brew "biome"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
 # New way to see and navigate directory trees
 brew "broot"
 # Versatile and fast Unicode/ASCII/ANSI graphics renderer
 brew "chafa"
-# Create and view interactive cheat sheets for *nix commands
-brew "cheat"
 # Manage your dotfiles across multiple diverse machines, securely
 brew "chezmoi"
 # Top-like interface for container metrics
@@ -72,8 +69,6 @@ brew "fd"
 brew "fnm"
 # Terminal JSON viewer
 brew "fx"
-# Command-line fuzzy finder written in Go
-brew "fzf"
 # Graphics library to dynamically manipulate images
 brew "gd"
 # GitHub command-line tool
@@ -118,18 +113,22 @@ brew "mas"
 brew "most"
 # Interactive cheatsheet tool for the command-line
 brew "navi"
+# Ambitious Vim-fork focused on extensibility and agility
+brew "neovim"
 # Manage multiple Node.js versions
 brew "nvm"
+# Use Neovim as pager
+brew "page", link: false
 # CLI for Postgres with auto-completion and syntax highlighting
 brew "pgcli"
-# Manage compile and link flags for libraries
-brew "pkg-config"
 # Code formatter for JavaScript, CSS, JSON, GraphQL, Markdown, YAML
 brew "prettier"
 # Modern replacement for ps written by Rust
 brew "procs"
 # Cloud native development platform
 brew "pulumi"
+# Pretty, minimal and fast ZSH prompt
+brew "pure"
 # Python version management
 brew "pyenv"
 # Cross-platform application and UI framework
@@ -212,12 +211,10 @@ brew "lusingander/tap/stu"
 brew "oven-sh/bun/bun"
 # Interactive grep (for streaming)
 brew "ynqa/tap/sigrs"
-
-##################################
+# Private desktop AI chat application
+cask "anythingllm"
 # Chromium based browser
 cask "arc"
-# duck duck go privacy
-cask "duckduckgo"
 # Contacts manager
 cask "cardhop"
 # OpenAI's official ChatGPT desktop app
@@ -242,8 +239,10 @@ cask "hammerspoon"
 cask "hoppscotch"
 # System monitoring app
 cask "istat-menus"
-# Terminal emulator Warp
-cask "warp"
+# Keyboard customiser
+cask "karabiner-elements"
+# ZSA keyboard firmware flasher
+cask "keymapp"
 # Discover, download, and run local LLMs
 cask "lm-studio"
 # Adaptive brightness for external displays
@@ -282,11 +281,14 @@ cask "tailscale"
 cask "todoist"
 # Open-source code editor
 cask "visual-studio-code"
+# Rust-based terminal
+cask "warp"
 # Video communication and virtual meeting platform
 cask "zoom"
-##################################
+mas "Apple Configurator", id: 1037126344
 mas "Bear", id: 1091189122
 mas "Bitwarden", id: 1352778147
+mas "Developer", id: 640199958
 mas "KakaoTalk", id: 869223134
 mas "LanScan", id: 472226235
 mas "Omnivore", id: 1564031042

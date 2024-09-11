@@ -13,6 +13,16 @@ tap "ynqa/tap"
 brew "neovim"
 # All-in-one AI-Powered CLI Chat & Copilot
 brew "aichat"
+# Secure and free password manager for all of your devices
+brew "bitwarden-cli"
+# Plugin manager for zsh, inspired by antigen and antibody
+brew "antidote"
+# Use Neovim as pager
+brew "page", link: false
+# Pretty, minimal and fast ZSH prompt
+brew "pure"
+# Tool for managing apps on iOS devices
+brew "ideviceinstaller"
 # Library for command-line editing
 brew "readline"
 # AI pair programming in your terminal
@@ -325,6 +335,8 @@ cask "ngrok"
 cask "obsidian"
 # Get up and running with large language models locally
 cask "ollama"
+# Private desktop AI chat application
+cask "anythingllm"
 # Verify system files structure, run miscellaneous maintenance and more
 cask "onyx"
 # Replacement for Docker Desktop
