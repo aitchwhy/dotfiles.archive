@@ -9,53 +9,53 @@ export DOTS_ZSH=$DOTS/zsh
 # export BREWFILE_GLOBAL=${HOMEBREW_BUNDLE_FILE_GLOBAL:-$HOME/.Brewfile}
 export EDITOR='nvim'
 
-#------------------------------------------------------------------------------
-# Initialize zplug (Zsh plugin manager) and install plugins if necessary
-#------------------------------------------------------------------------------
-if [[ ! -d ~/.zplug ]]; then
-  echo "zplug not found. Installing..."
-  curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
-  echo "zplug installed. Please wait..."
-  sleep 3  # Wait for 3 seconds to ensure everything is set up properly
-  # source ~/.zplug/init.zsh  # Initialize zplug immediately after installation
-fi
-
-# Ensure zplug is sourced after installation
-source ~/.zplug/init.zsh
-
-#------------------------------------------------------------------------------
-# zsh plugins list (existing and additional plugins)
-#------------------------------------------------------------------------------
-zplug "zsh-users/zsh-autosuggestions"
-zplug "zdharma-continuum/fast-syntax-highlighting"
-zplug "zsh-users/zsh-syntax-highlighting", as:plugin
-zplug "zsh-users/zsh-completions", as:plugin
-# zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
-zplug "junegunn/fzf", as:plugin, if:"(( $+commands[fzf] ))"
-zplug "Aloxaf/fzf-tab", as:plugin, if:"(( $+commands[fzf] ))"
-zplug "sindresorhus/pure", as:theme, use:pure.zsh
-
-# alias helper
-zplug "plugins/aliases", from:oh-my-zsh, as:plugin
-zplug "plugins/command-not-found", from:oh-my-zsh, as:plugin
-# git aliases
-zplug "plugins/git", from:oh-my-zsh, as:plugin, if:"(( $+commands[git] ))"
-# git extra util commands (https://github.com/unixorn/git-extra-commands?tab=readme-ov-file#oh-my-zsh)
-zplug "unixorn/git-extra-commands", as:plugin, if:"(( $+commands[git] ))"
-
-# reminder of existing aliases
-zplug "MichaelAquilina/zsh-you-should-use"
-
-# Additional plugins for functionality
-zplug "mafredri/zsh-async"  # Required for Pure theme
-
-# Install any missing plugins
-if ! zplug check --verbose; then
-    zplug install
-fi
-
-# Load all plugins
-zplug load --verbose
+# #------------------------------------------------------------------------------
+# # Initialize zplug (Zsh plugin manager) and install plugins if necessary
+# #------------------------------------------------------------------------------
+# if [[ ! -d ~/.zplug ]]; then
+#   echo "zplug not found. Installing..."
+#   curl -sL --proto-redir -all,https https://raw.githubusercontent.com/zplug/installer/master/installer.zsh | zsh
+#   echo "zplug installed. Please wait..."
+#   sleep 3  # Wait for 3 seconds to ensure everything is set up properly
+#   # source ~/.zplug/init.zsh  # Initialize zplug immediately after installation
+# fi
+#
+# # Ensure zplug is sourced after installation
+# source ~/.zplug/init.zsh
+#
+# #------------------------------------------------------------------------------
+# # zsh plugins list (existing and additional plugins)
+# #------------------------------------------------------------------------------
+# zplug "zsh-users/zsh-autosuggestions"
+# zplug "zdharma-continuum/fast-syntax-highlighting"
+# zplug "zsh-users/zsh-syntax-highlighting", as:plugin
+# zplug "zsh-users/zsh-completions", as:plugin
+# # zplug "ajeetdsouza/zoxide", as:plugin, if:"(( $+commands[zoxide] ))"
+# zplug "junegunn/fzf", as:plugin, if:"(( $+commands[fzf] ))"
+# zplug "Aloxaf/fzf-tab", as:plugin, if:"(( $+commands[fzf] ))"
+# zplug "sindresorhus/pure", as:theme, use:pure.zsh
+#
+# # alias helper
+# zplug "plugins/aliases", from:oh-my-zsh, as:plugin
+# zplug "plugins/command-not-found", from:oh-my-zsh, as:plugin
+# # git aliases
+# zplug "plugins/git", from:oh-my-zsh, as:plugin, if:"(( $+commands[git] ))"
+# # git extra util commands (https://github.com/unixorn/git-extra-commands?tab=readme-ov-file#oh-my-zsh)
+# zplug "unixorn/git-extra-commands", as:plugin, if:"(( $+commands[git] ))"
+#
+# # reminder of existing aliases
+# zplug "MichaelAquilina/zsh-you-should-use"
+#
+# # Additional plugins for functionality
+# zplug "mafredri/zsh-async"  # Required for Pure theme
+#
+# # Install any missing plugins
+# if ! zplug check --verbose; then
+#     zplug install
+# fi
+#
+# # Load all plugins
+# zplug load --verbose
 
 #------------------------------------------------------------------------------
 # Enable Vim mode in Zsh and custom keybindings
